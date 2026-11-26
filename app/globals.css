@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: light; }
+html, body { -webkit-tap-highlight-color: transparent; }
+body { @apply font-sans text-cream bg-evergreen antialiased; }
+.light-page { @apply bg-parchment text-ink; }
+
+/* Falling snow: CSS-only, cheap on phones */
+.snow { position: absolute; inset: 0; overflow: hidden; pointer-events: none; }
+.snow i {
+  position: absolute; top: -12px; border-radius: 9999px; background: #FBF6EC;
+  animation: snowfall linear infinite;
+}
+@keyframes snowfall {
+  0% { transform: translate3d(0, -10px, 0); }
+  100% { transform: translate3d(var(--drift, 20px), 110vh, 0); }
+}
+
+/* Gold shimmer for jackpot text */
+.shimmer {
+  background: linear-gradient(100deg, #D4A84B 20%, #FFF1C9 40%, #E2BC63 55%, #D4A84B 75%);
+  background-size: 250% 100%;
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  animation: shimmer 2.4s ease-in-out infinite;
+}
+@keyframes shimmer { 0% { background-position: 100% 0; } 100% { background-position: -100% 0; } }
+
+@keyframes pulse-pill { 0%,100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(179,32,46,.6);} 50% { transform: scale(1.04); box-shadow: 0 0 0 18px rgba(179,32,46,0);} }
+.pulse-pill { animation: pulse-pill 1s ease-in-out infinite; }
+
+@keyframes rays-spin { to { transform: rotate(360deg); } }
+.rays-spin { animation: rays-spin 14s linear infinite; }
+
+.btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-btn font-semibold transition
+    active:scale-[0.98] focus-visible:outline focus-visible:outline-4 focus-visible:outline-offset-2
+    disabled:opacity-60 disabled:cursor-not-allowed select-none;
+  min-height: 56px;
+}
+.btn-gold { @apply btn bg-gold text-ink hover:bg-gold-light focus-visible:outline-gold-pale; }
+.btn-cranberry { @apply btn bg-cranberry text-white hover:bg-cranberry-light focus-visible:outline-cranberry; }
+.btn-outline-light { @apply btn border-2 border-evergreen-line text-cream hover:bg-white/5 focus-visible:outline-gold-pale; }
+
+@media (prefers-reduced-motion: reduce) {
+  .snow { display: none; }
+  .shimmer, .pulse-pill, .rays-spin { animation: none !important; }
+  .shimmer { color: #E2BC63; background: none; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}

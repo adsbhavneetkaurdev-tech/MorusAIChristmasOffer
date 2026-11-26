@@ -1,0 +1,39 @@
+{
+  "name": "christmas-gift-drop",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Christmas Gift Drop: Brar Mortgages x Morus AI",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "engines": {
+    "node": ">=18.18"
+  },
+  "dependencies": {
+    "@upstash/redis": "1.41.1",
+    "canvas-confetti": "1.9.4",
+    "framer-motion": "12.43.0",
+    "next": "15.5.29",
+    "qrcode.react": "4.2.0",
+    "react": "19.2.9",
+    "react-dom": "19.2.9",
+    "resend": "4.8.0"
+  },
+  "devDependencies": {
+    "@types/canvas-confetti": "1.9.0",
+    "@types/node": "22.15.30",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "autoprefixer": "10.4.21",
+    "fengari": "0.1.5",
+    "postcss": "8.5.6",
+    "tailwindcss": "3.4.19",
+    "typescript": "5.9.3",
+    "vitest": "3.2.7"
+  }
+}
